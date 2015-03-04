@@ -6,12 +6,12 @@
 
     $("#increase").click(function() {
       checkPowerSave();
-      thermostat.change(1);
+      thermostat.changeTemperature(1);
       updateTemp();
     });
 
     $("#decrease").click(function() {
-      thermostat.change(-1);
+      thermostat.changeTemperature(-1);
       updateTemp();
     });
 

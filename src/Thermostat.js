@@ -7,7 +7,7 @@ var Thermostat = function() {
   this.powerSaving = true;
 };
 
-  Thermostat.prototype.change = function(degrees) {
+  Thermostat.prototype.changeTemperature = function(degrees) {
     this.temp += degrees;
     this._tempControl();
   };
@@ -19,6 +19,16 @@ var Thermostat = function() {
 
   Thermostat.prototype.tempReset = function() {
     this.temp = DEFAULT_TEMPERATURE;
+  };
+
+  Thermostat.prototype.energyUsage = function() {
+    if (this.temp >= 25) {
+      return "high";
+    } else if (this.temp >= 18 && this.temp <= 24) {
+      return "medium";
+    } else if (this.temp <= 17) {
+      return "low";
+    }
   };
 
   Thermostat.prototype._tempControl = function() {
