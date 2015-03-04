@@ -2,7 +2,7 @@ var Thermostat = function() {
   DEFAULT_TEMPERATURE = 20;
   MINIMUM_TEMPERATURE = 10;
   MAX_TEMPERATURE = 32;
-  POWER_SAVING_CAP = 25;
+  POWER_SAVING_MAX = 25;
   LOW_ENERGY_CAP = 18;
   this.temp = DEFAULT_TEMPERATURE;
   this.powerSaving = true;
@@ -23,9 +23,9 @@ var Thermostat = function() {
   };
 
   Thermostat.prototype.energyUsage = function() {
-    if (this.temp >= POWER_SAVING_CAP) {
+    if (this.temp >= POWER_SAVING_MAX) {
       return "high";
-    } else if (this.temp >= LOW_ENERGY_CAP && this.temp < POWER_SAVING_CAP) {
+    } else if (this.temp >= LOW_ENERGY_CAP && this.temp < POWER_SAVING_MAX) {
       return "medium";
     } else if (this.temp < LOW_ENERGY_CAP) {
       return "low";
@@ -34,6 +34,6 @@ var Thermostat = function() {
 
   Thermostat.prototype._tempControl = function() {
     if (this.temp < MINIMUM_TEMPERATURE) {this.temp = MINIMUM_TEMPERATURE};
-    if (this.powerSaving === true && this.temp > POWER_SAVING_CAP) {this.temp = POWER_SAVING_CAP};
+    if (this.powerSaving === true && this.temp > POWER_SAVING_MAX) {this.temp = POWER_SAVING_MAX};
     if (this.powerSaving === false && this.temp > MAX_TEMPERATURE) {this.temp = MAX_TEMPERATURE};
   };
