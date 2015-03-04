@@ -1,5 +1,9 @@
 var Thermostat = function() {
-  this.temp = 20;
+  DEFAULT_TEMPERATURE = 20;
+  MINIMUM_TEMPERATURE = 10;
+  MAX_TEMPERATURE = 32;
+  CAPPED_TEMPERATURE = 25;
+  this.temp = DEFAULT_TEMPERATURE;
   this.powerSaving = true;
 };
 
@@ -9,16 +13,16 @@ var Thermostat = function() {
   };
 
   Thermostat.prototype.powerSavingMode = function(mode) {
-    mode == false ? this.powerSaving = false : this.powerSaving = true;
+    mode === false ? this.powerSaving = false : this.powerSaving = true;
     this._tempControl();
   };
 
   Thermostat.prototype.tempReset = function() {
-    this.temp = 20;
+    this.temp = DEFAULT_TEMPERATURE;
   };
 
   Thermostat.prototype._tempControl = function() {
-    if (this.temp < 10) { this.temp = 10};
-    if (this.powerSaving === true && this.temp > 25) {this.temp = 25};
-    if (this.powerSaving === false && this.temp > 32) {this.temp = 32};
+    if (this.temp < MINIMUM_TEMPERATURE) {this.temp = MINIMUM_TEMPERATURE};
+    if (this.powerSaving === true && this.temp > CAPPED_TEMPERATURE) {this.temp = CAPPED_TEMPERATURE};
+    if (this.powerSaving === false && this.temp > MAX_TEMPERATURE) {this.temp = MAX_TEMPERATURE};
   };
