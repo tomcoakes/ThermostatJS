@@ -33,17 +33,14 @@
     };
 
     tempColor = function() {
-      if(thermostat.temp >= 28) {
+      if(thermostat.energyUsage() == "high") {
         $("#current_temp").css("color", "red");
       }
-      if(thermostat.temp >= 23 && thermostat.temp <= 27) {
+      if(thermostat.energyUsage() == "medium") {
         $("#current_temp").css("color", "orange");
       }
-      if(thermostat.temp >= 17 && thermostat.temp <= 22) {
+      if(thermostat.energyUsage() == "low") {
         $("#current_temp").css("color", "green");
-      }
-      if(thermostat.temp <= 16) {
-        $("#current_temp").css("color", "blue");
       }
     };
 
