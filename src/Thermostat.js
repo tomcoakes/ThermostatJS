@@ -10,15 +10,15 @@ var Thermostat = function() {
 
   Thermostat.prototype.powerSavingMode = function(mode) {
     mode == false ? this.powerSaving = false : this.powerSaving = true;
+    this._tempControl();
+  };
+
+  Thermostat.prototype.tempReset = function() {
+    this.temp = 20;
   };
 
   Thermostat.prototype._tempControl = function() {
-    if (this.temp < 10) { this.temp = 10 };
-    
-    if (this.powerSaving == true) {
-      (this.temp > 25) ? this.temp = 25 : this.temp;
-    } else {
-      (this.temp > 32) ? this.temp = 32 : this.temp;
-    };
-
+    if (this.temp < 10) { this.temp = 10};
+    if (this.powerSaving === true && this.temp > 25) {this.temp = 25};
+    if (this.powerSaving === false && this.temp > 32) {this.temp = 32};
   };
