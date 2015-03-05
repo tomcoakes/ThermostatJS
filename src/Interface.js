@@ -36,13 +36,13 @@ $(document).ready(function() {
 
   tempColor = function() {
     if(thermostat.energyUsage() == "high") {
-      $("#current_temp").css("color", "red");
+      $("#current_temp").css("color", "#EF4836");
     }
     if(thermostat.energyUsage() == "medium") {
       $("#current_temp").css("color", "orange");
     }
     if(thermostat.energyUsage() == "low") {
-      $("#current_temp").css("color", "green");
+      $("#current_temp").css("color", "#00B16A");
     }
   };
 

@@ -3,6 +3,7 @@
 
   <head>
   <title>Thermostat Control</title>
+  <link href="styles/main.css" rel="stylesheet" type="text/css">
   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
   <script src="src/Thermostat.js"></script>
   <script src="src/Interface.js"></script>
@@ -10,14 +11,17 @@
 
 
   <body>
-    <main>
-      <p>Current Temperature:</p>
-      <h1 id="current_temp" style="color: orange;"></h1>
-      <button type="button" id="increase">Increase Temperature</button>
-      <button type="button" id="decrease">Decrease Temperature</button>
-      <button type="reset" id="reset">Reset</button>
-      <input type="checkbox" id="powersave" checked> Power Saving Mode
-    </main>
+      <main>
+        <section id="screen">
+          <span id="current_temp" style="color: orange;"></span>
+          <div id="group_of_buttons">
+            <button type="button" class="buttons" id="increase">Warmer</button>
+            <button type="button" class="buttons" id="decrease">Cooler</button>
+            <button class="buttons" id="reset">Reset</button>
+            <span class="buttons"><label><input type="checkbox" name="switch" id="powersave" checked>Power Saving Mode</label></span><label for="switch"></label>
+          </div>
+        </section>
+      </main>
   </body>
 
 
